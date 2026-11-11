@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Borrar tu cuenta · CuidaRed</title>
+  <meta name="description" content="Cómo borrar tu cuenta de CuidaRed y tus datos, con la app o desde esta página.">
+  <meta name="referrer" content="no-referrer">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <main>
+    <header class="marca"><a href="./">CuidaRed</a></header>
+    <h1>Borrar tu cuenta de CuidaRed</h1>
+    <p class="muted">CuidaRed es una app de JUNOSoft, S.L.</p>
+
+    <p>Puedes hacerlo desde la app (Perfil → «Tus datos» → «Borrar mi cuenta») o aquí mismo, sin la app.</p>
+
+    <h2>Qué se borra</h2>
+    <ul>
+      <li>Tu cuenta, tu perfil y tus avisos se borran para siempre.</li>
+      <li>Tus fotos, tus mensajes a la familia y tus mensajes del chat se borran.</li>
+      <li>Los círculos donde no hay nadie más se borran enteros.</li>
+      <li>Lo que apuntaste en los círculos (tomas, diario, turnos, gastos…) se queda, sin tu nombre: saldrá como «Persona que ya no está».</li>
+    </ul>
+    <p class="muted">Si quieres, antes descarga una copia de tus datos desde la app (Perfil → «Tus datos» → «Descargar mis datos»). Más información en la <a href="privacidad.html">política de privacidad</a>.</p>
+
+    <section class="tarjeta" aria-labelledby="entrar-titulo">
+      <h2 id="entrar-titulo">1. Entra con tu cuenta</h2>
+      <p>Para asegurarnos de que eres tú.</p>
+
+      <form id="con-contrasena" novalidate>
+        <label for="correo">Correo electrónico</label>
+        <input id="correo" type="email" autocomplete="email" required>
+        <label for="contrasena">Contraseña</label>
+        <input id="contrasena" type="password" autocomplete="current-password" required>
+        <button type="submit">Entrar</button>
+        <button type="button" class="secundario" id="olvidada">No recuerdo la contraseña</button>
+      </form>
+
+      <form id="con-codigo" hidden novalidate>
+        <p>Te enviamos un código de 6 cifras a tu correo.</p>
+        <label for="correo-codigo">Correo electrónico</label>
+        <input id="correo-codigo" type="email" autocomplete="email" required>
+        <button type="button" id="enviar-codigo">Enviar el código</button>
+        <div id="paso-codigo" hidden>
+          <label for="codigo">Código del correo</label>
+          <input id="codigo" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required>
+          <button type="submit">Entrar con el código</button>
+        </div>
+        <button type="button" class="secundario" id="volver-contrasena">Entrar con la contraseña</button>
+      </form>
+    </section>
+
+    <section class="tarjeta" id="confirmar" hidden aria-labelledby="confirmar-titulo">
+      <h2 id="confirmar-titulo" tabindex="-1">2. Confirma el borrado</h2>
+      <p>Vas a borrar la cuenta <strong id="cuenta"></strong>.</p>
+      <label class="casilla"><input type="checkbox" id="entiendo"> Entiendo que se borra para siempre y no se puede deshacer.</label>
+      <button type="button" class="peligro" id="borrar">Sí, borrar mi cuenta para siempre</button>
+      <button type="button" class="secundario" id="cancelar">No, volver</button>
+    </section>
+
+    <div id="mensaje" class="mensaje" role="alert" aria-live="assertive" tabindex="-1" hidden></div>
+
+    <footer class="muted"><p>¿Algún problema para borrar tu cuenta? Escríbenos a <a href="mailto:administracion@junosoft.es">administracion@junosoft.es</a> desde el correo de la cuenta.</p><p>CuidaRed es una app de JUNOSoft, S.L. · <a href="mailto:administracion@junosoft.es">administracion@junosoft.es</a> · <a href="privacidad.html">Privacidad</a></p></footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="vendor/supabase-2.118.0.js"></script>
+  <script src="borrar-cuenta.js"></script>
+</body>
+</html>

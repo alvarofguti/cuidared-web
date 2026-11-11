@@ -1,0 +1,66 @@
+/* Misma paleta que la app (src/theme/colors.ts). Sin fuentes externas: la del sistema. */
+:root {
+  --background: #fbf8f4;
+  --surface: #ffffff;
+  --text: #1f2328;
+  --text-muted: #4a5058;
+  --primary: #0f6a63;
+  --on-primary: #ffffff;
+  --primary-soft: #dcefec;
+  --accent: #8e3b6e;
+  --border-strong: #7d756c;
+  --danger: #b42318;
+  --success: #1d6b3a;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #14171a;
+    --surface: #1e2226;
+    --text: #f2efea;
+    --text-muted: #c2c7cd;
+    --primary: #5cc8bc;
+    --on-primary: #0b2b28;
+    --primary-soft: #173b38;
+    --accent: #e59bc8;
+    --border-strong: #808a94;
+    --danger: #ff8a80;
+    --success: #6fd08c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 1.125rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 44rem; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+header.marca { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+header.marca a { color: var(--primary); font-weight: 700; font-size: 1.5rem; text-decoration: none; }
+h1 { font-size: 1.9rem; line-height: 1.25; }
+h2 { font-size: 1.35rem; margin-top: 2rem; }
+a { color: var(--primary); }
+.muted { color: var(--text-muted); }
+.aviso { background: var(--primary-soft); border-radius: 1rem; padding: 1rem 1.25rem; }
+.tarjeta { background: var(--surface); border: 2px solid var(--border-strong); border-radius: 1.25rem; padding: 1.25rem; margin: 1rem 0; }
+label { display: block; font-weight: 700; margin: 1rem 0 0.25rem; }
+input[type="email"], input[type="password"], input[type="text"] {
+  width: 100%; min-height: 3.5rem; padding: 0.75rem 1rem; font: inherit; color: var(--text);
+  background: var(--surface); border: 2px solid var(--border-strong); border-radius: 1rem;
+}
+.casilla { display: flex; gap: 0.75rem; align-items: flex-start; margin: 1rem 0; font-weight: 400; }
+.casilla input { width: 1.75rem; height: 1.75rem; margin-top: 0.15rem; flex: none; }
+button {
+  display: block; width: 100%; min-height: 3.5rem; margin-top: 1rem; padding: 0.75rem 1.5rem; font: inherit; font-weight: 700;
+  border-radius: 1rem; border: 2px solid var(--primary); background: var(--primary); color: var(--on-primary); cursor: pointer;
+}
+button.secundario { background: transparent; color: var(--primary); }
+button.peligro { background: var(--danger); border-color: var(--danger); color: #fff; }
+button:disabled { opacity: 0.6; cursor: wait; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.mensaje { border-radius: 1rem; padding: 1rem 1.25rem; margin-top: 1rem; border: 2px solid; }
+.mensaje.error { border-color: var(--danger); color: var(--danger); }
+.mensaje.ok { border-color: var(--success); color: var(--success); }
+[hidden] { display: none !important; }
+footer { margin-top: 3rem; font-size: 1rem; }
