@@ -1,7 +1,7 @@
 // Borrar la cuenta sin la app: entrar (contraseña o código del correo) y llamar a la misma
 // función de la base de datos que usa la app, `delete_my_account`.
 (function () {
-  const { supabaseUrl, supabaseKey } = window.CUIDARED;
+  const { supabaseUrl, supabaseKey } = window.CUIDAPP;
   // Sin guardar la sesión en el navegador: solo vive mientras la página está abierta.
   const client = window.supabase.createClient(supabaseUrl, supabaseKey, {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
@@ -120,7 +120,7 @@
       // La cuenta ya no existe: la sesión deja de valer.
       await client.auth.signOut({ scope: 'local' });
       confirmar.hidden = true;
-      avisar('Tu cuenta se ha borrado. Gracias por haber usado CuidaRed.', 'ok');
+      avisar('Tu cuenta se ha borrado. Gracias por haber usado CuidApp.', 'ok');
     });
   });
 })();
